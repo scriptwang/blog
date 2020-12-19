@@ -1,6 +1,6 @@
 # 代码狂魔简介
 
-> [GitHub](https://github.com/scriptwang)
+- [GitHub](https://github.com/scriptwang)
 
 # 友情链接
 收集的一些好博客
