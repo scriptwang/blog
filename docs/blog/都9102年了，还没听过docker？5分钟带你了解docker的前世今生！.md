@@ -1,3 +1,4 @@
+
 最近几年容器技术异常火热，作为**容器技术代表**的docker自然也炙手可热，简直就是软件界的网红，这么火的docker早就已经应用在生产环境中，国内容器圈内最具代表性的大厂就是阿里和京东。
 
 京东从14年开始在生产环境进行容器化部署，15年618，京东跑了15万个docker实例，到目前为止已经实现了100%应用容器化部署，根据CNCF（Cloud Native Computing Foundation）数据统计，世界上最大的docker集群部署在京东！ [与京东交谈：Kubernetes、云原生和CNCF项目推动大数据和AI](https://www.kubernetes.org.cn/4407.html)
@@ -65,7 +66,7 @@ docker迅速成长为云计算相关领域最受欢迎的开源项目，没有�
 
 - docker的第二句口号：**Build once，Run anywhere**(创建一次，到处运行)
 
-![](./files/10374438-2a242124824344cc.png
+![](./files/10374438-2a242124824344cc.png)
 
 这个不难理解，比如大熊要创建一个网站，我从仓库里面复制一个口袋回来，运行；胖虎也要创建一个一样的网站，重复上面的过程即可。
 
@@ -127,12 +128,14 @@ docker hub作为docker的镜像仓库，里面存放了成千上万的镜像，�
 
 - 容器
   容器和虚拟机具有相似的资源隔离和分配优势，但功能有所不同，因为容器虚拟化的是操作系统，而不是硬件，因此容器更容易移植，效率也更高。
+  
 ![](./files/10374438-75507ec5e5a2d623.png)
 
   容器是一个应用层抽象，用于将代码和依赖资源打包在一起。多个容器可以在同一台机器上运行，共享操作系统内核，但各自作为独立的进程在用户空间中运行。与虚拟机相比，容器占用的空间较少（容器镜像大小通常只有几十兆），瞬间就能完成启动。
 
 - 虚拟机
   虚拟机 (VM) 是一个物理硬件层抽象，用于将一台服务器变成多台服务器。管理程序允许多个 VM 在一台机器上运行。每个 VM 都包含一整套操作系统、一个或多个应用、必要的二进制文件和库资源，因此占用大量空间。而且 VM 启动也十分缓慢。
+
 ![](./files/10374438-d9897154568d17ee.png)
 
 - **容器可以在虚拟机里面运行，两者可共存**
@@ -143,16 +146,16 @@ docker hub作为docker的镜像仓库，里面存放了成千上万的镜像，�
 docker作为容器技术的代表，其核心技术在linux内核里面存在很久了，docker对其进行了进一步封装。
 docker利用Linux kernel中的资源分配机制CGroups，以及Linux核心名字空间namespace来进行进程级别的资源隔离。
 
-**namespace**
+### namespace
 docer的底层对namespace的隔离主要是通过下面3个系统函数来实现的：
   -  clone() ：实现线程的系统调用，用来创建一个新的进程，并可以通过设计上述参数达到隔离。对函数送不同的参数实现对存储、网络、进程、用户等环境层面的隔离，具体函数可以参考C++函数库。
   - unshare() ： 使某进程脱离某个namespace，可以通过该函数将进程从某个容器中剥离
   - setns() ： 把某进程加入到某个namespace，可以通过该函数将进程控制在某个容器中，防止被跨容器访问
 
-**CGroup**
+### CGroup
 Linux CGroup全称Linux Control Group， 是Linux内核的一个功能，用来限制，控制与分离一个进程组群的资源（如CPU、内存、磁盘输入输出等）。
 
-**AUFS联合文件系统**
+### AUFS联合文件系统
 在传统的linux引导过程中，root文件系统会最先以只读的方式加载，当引导结束并完成了完整性检查后，才会被切换到读写模式。
 
 但是在docker中，root文件系统永远都只能是只读的，并且docker利用union mount（AUFS）技术在root文件系统层面加载更多的只读文件系统。
@@ -162,26 +165,42 @@ union mount将各层文件系统叠加在一起，这些文件组成了一个镜
 最后，当从一个镜像启动容器时，docker会在镜像的最顶层加载一个读写文件系统，只有最顶层的的容器部分是可读写的。
 
 当容器运行后，文件系统发生变化都会体现在这一层，当改变一个文件的时候，这个文件首先会从下面的只读层复制到读写层，然后读写层对该文件的操作会隐藏在只读层的该文件，这就是传说中的copy on write。
+
 ![](./files/10374438-d27f0d1d39e7e661.png)
 
 容器是可写的，镜像是只读的。如果有很多镜像的话，比如本地主机有很多很多的镜像，很多的镜像有些层是可以共享的，可能，有些层他们之间是一样的，一样的话，这些层只会占用一个空间，达到节省空间达到目的。
 
 可以同个一个镜像，启动很多个容器，这些容器它共用的都是这一个镜像，它不像虚拟机似得，如果有一个虚拟机是100G，我又启动了一个，它又会占用100G，它的内存资源是非常消耗的。
 然而容器是共有这一个镜像，不会启动很多很多的容器，非常的省资源，下面这张图比较形象的表示了docker容器和镜像的物理关系。
+
 ![](./files/10374438-61aa753dfacb08e9.png)
-**docker镜像与容器详解**
+
+### docker镜像与容器详解
 镜像和容器是docker的核心概念之一，docker采用AUFS联合文件系统，容器是可写的，镜像是只读的。
+
 ![](./files/10374438-b151e97ab189db23.png)
+
 镜像（Image）就是一堆只读层合成的。
+
 ![](./files/10374438-db45a68761a8b7a2.png)
+
 其中除了最底层，上面的每一层都指向父级。
+
 ![](./files/10374438-137a4df859dccab4.png)
+
 一个镜像层包括id，指向父级的指针和当前层的元数据。
+
 ![](./files/10374438-44d20b6ef83a9cbb.png)
+
 容器（container）和镜像最大区别就是容器最上面有一层读写层。
+
 ![](./files/10374438-f2dec6a9e56f4db5.png)
+
 一个运行态容器（running container）被定义为一个可读写的统一文件系统加上隔离的进程空间和包含其中的进程。
+
 ![](./files/10374438-e62b3d3d7e227198.png)
+
+
 
 ## 结语
 有人说容器技术不火了，也有人说2018年才是容器技术真正大规模落地的元年，2018年3月docker之父Solomon Hykes宣布已正式从 docker 公司[离职](https://www.oschina.net/news/94685/solomon-hykes-announces-departure-from-docker)，不再担任公司的日常运作工作，太多不确定因素，到底docker会走向何方，让我们拭目以待。
@@ -191,9 +210,9 @@ union mount将各层文件系统叠加在一起，这些文件组成了一个镜
 扩展阅读：[你不知的Docker 创办人兼CTO游走美法的浪漫狂放](https://www.csdn.net/article/2015-07-07/2825153-docker)
 
 ## 参考
-https://viethip.com/2014/03/05/docker-a-linux-container/
-https://www.csdn.net/article/2015-07-07/2825153-docker
-http://dockone.io/article/783
-http://merrigrove.blogspot.com/2015/10/visualizing-docker-containers-and-images.html
-https://zhuanlan.zhihu.com/p/53260098
-https://zhuanlan.zhihu.com/p/39277098
+- https://viethip.com/2014/03/05/docker-a-linux-container/
+- https://www.csdn.net/article/2015-07-07/2825153-docker
+- http://dockone.io/article/783
+- http://merrigrove.blogspot.com/2015/10/visualizing-docker-containers-and-images.html
+- https://zhuanlan.zhihu.com/p/53260098
+- https://zhuanlan.zhihu.com/p/39277098
