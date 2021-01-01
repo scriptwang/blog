@@ -16,15 +16,21 @@
 ## SpringBoot
 
 ## 其他
-- [本博客搭建](blog/本博客搭建.md)
+- [作为一名前端开发者，当没有IDE时Chrome就是你的IDE！](blog/作为一名前端开发者，当没有IDE时Chrome就是你的IDE！.md)
+- [浏览器js做分页（JQuery）](blog/浏览器js做分页（JQuery）.md)
+- [5分钟搭建苹果CMS及熟悉常用操作](blog/5分钟搭建苹果CMS及熟悉常用操作.md)
 - [长文慎点，Java学习笔记](blog/长文慎点，Java学习笔记.md)
 - [史上最简单的进制互转！](blog/史上最简单的进制互转！.md)
 - [还在用记事本？你需要搭建属于自己的知识库！](blog/还在用记事本？你需要搭建属于自己的知识库！.md)
 - [都9102年了，还没听过docker？5分钟带你了解docker的前世今生！](blog/都9102年了，还没听过docker？5分钟带你了解docker的前世今生！.md)
 - [面向微信开发](blog/面向微信开发.md)
+- [本博客搭建](blog/本博客搭建.md)
     
     
 # 归档
+- [作为一名前端开发者，当没有IDE时Chrome就是你的IDE！](blog/作为一名前端开发者，当没有IDE时Chrome就是你的IDE！.md)
+- [浏览器js做分页（JQuery）](blog/浏览器js做分页（JQuery）.md)
+- [5分钟搭建苹果CMS及熟悉常用操作](blog/5分钟搭建苹果CMS及熟悉常用操作.md)
 - [面向微信开发](blog/面向微信开发.md)
 - [都9102年了，还没听过docker？5分钟带你了解docker的前世今生！](blog/都9102年了，还没听过docker？5分钟带你了解docker的前世今生！.md)
 - [还在用记事本？你需要搭建属于自己的知识库！](blog/还在用记事本？你需要搭建属于自己的知识库！.md)
