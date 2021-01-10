@@ -41,7 +41,6 @@
 - [SQLite的13个使用场景](blog/SQLite的13个使用场景.md)
 
 ## 其他
-- [SQL Server临时表生命周期](blog/SQL_Server临时表生命周期.md)
 - [SQLite的13个使用场景](blog/SQLite的13个使用场景.md)
 - [「汤不热」凉凉，30万老司机何去何从？（附赠Tumblr视频下载脚本）](blog/「汤不热」凉凉，30万老司机何去何从？（附赠Tumblr视频下载脚本）.md)
 - [Linux中找出Java程序占用大量CPU的元凶](blog/Linux中找出Java程序占用大量CPU的元凶.md)
@@ -60,6 +59,7 @@
     
     
 # 归档
+- [SQL Server临时表生命周期](blog/SQL_Server临时表生命周期.md)
 - [SQLite常用命令和函数](blog/SQLite常用命令和函数.md)
 - [SQLite的13个使用场景](blog/SQLite的13个使用场景.md)
 - [「汤不热」凉凉，30万老司机何去何从？（附赠Tumblr视频下载脚本）](blog/「汤不热」凉凉，30万老司机何去何从？（附赠Tumblr视频下载脚本）.md)
