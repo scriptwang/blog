@@ -7,9 +7,11 @@
 
 
 ## 汤不热从凉（良），将在12月17日推出新规，全面禁止限制级内容
-然而在这个月，苹果APP商店下架了汤不热，理由是儿童NSFW内容，再次将汤不热推向了风口浪尖，很快内部就全面自查，全面封杀儿童NSFW内容，12月4日，汤不热再次宣布，将在12月17日后禁止一切成人内容上传到平台，现已存在的成人内容也将被标记、清理。![汤不热新规](https://upload-images.jianshu.io/upload_images/10374438-1bf874a272b3b8a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500)一天不到，汤不热母公司Verizon的股票价格就不堪老司机们的质问，企图跳悬自尽。但其竞争对手Twitter股价反而暴涨超过 7%。这是老司机们要转向Twitter的风向标么？
+然而在这个月，苹果APP商店下架了汤不热，理由是儿童NSFW内容，再次将汤不热推向了风口浪尖，很快内部就全面自查，全面封杀儿童NSFW内容，12月4日，汤不热再次宣布，将在12月17日后禁止一切成人内容上传到平台，现已存在的成人内容也将被标记、清理。![汤不热新规](files/10374438-1bf874a272b3b8a4.png)
 
-![汤不热母公司股票狂降](https://upload-images.jianshu.io/upload_images/10374438-62dc9321f45f5280.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)![Twitter股票涨7%](https://upload-images.jianshu.io/upload_images/10374438-81e4093cdb314e9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+一天不到，汤不热母公司Verizon的股票价格就不堪老司机们的质问，企图跳悬自尽。但其竞争对手Twitter股价反而暴涨超过 7%。这是老司机们要转向Twitter的风向标么？
+
+![汤不热母公司股票狂降](files/10374438-62dc9321f45f5280.png)![Twitter股票涨7%](https://upload-images.jianshu.io/upload_images/10374438-81e4093cdb314e9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 ## 何去何从?
