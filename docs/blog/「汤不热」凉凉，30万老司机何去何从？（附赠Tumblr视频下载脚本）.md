@@ -1,0 +1,57 @@
+**不想看前面瞎BB的老司机直接跳到文末，汤不热视频下载脚本**
+## 汤不热是个啥？
+提到汤不热，可能还有很多童鞋不太了解，汤不热原名「Tumblr」，中文名汤博乐、汤不热、汤，成立于2007年，是目前全球最大的轻博客网站，也是轻博客网站的始祖。汤不热自上线以来，就以内容尺度不设限而著名，除了各种前卫摄影师，如WANIMAL，还吸引了一大批华语圈老司机在此开山立派，久而久之，大家一谈到汤不热，就会内涵地相视一笑。
+![汤不热对成人内容表示友好](./files/汤不热对成人内容表示友好.jpg)
+
+早在去年（2017年）「上海陆家嘴不雅视频」事件将所有访问都指向汤不热，导致汤不热被墙（也不知道是哪个老司机失手，还是别有用心，这种热度迟早引起有关部门注意），去年以前，甚至不需要番羽土蔷就能访问汤不热！!
+
+
+## 汤不热从凉（良），将在12月17日推出新规，全面禁止限制级内容
+然而在这个月，苹果APP商店下架了汤不热，理由是儿童NSFW内容，再次将汤不热推向了风口浪尖，很快内部就全面自查，全面封杀儿童NSFW内容，12月4日，汤不热再次宣布，将在12月17日后禁止一切成人内容上传到平台，现已存在的成人内容也将被标记、清理。![汤不热新规](https://upload-images.jianshu.io/upload_images/10374438-1bf874a272b3b8a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500)一天不到，汤不热母公司Verizon的股票价格就不堪老司机们的质问，企图跳悬自尽。但其竞争对手Twitter股价反而暴涨超过 7%。这是老司机们要转向Twitter的风向标么？
+
+![汤不热母公司股票狂降](https://upload-images.jianshu.io/upload_images/10374438-62dc9321f45f5280.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)![Twitter股票涨7%](https://upload-images.jianshu.io/upload_images/10374438-81e4093cdb314e9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
+## 何去何从?
+此时的老哥心灰意凉，有人问我为什么喜欢汤不热，那是因为他足够特别，足够开放。但这次再也不会叫汤不热了，这碗"汤"凉了，从此改名汤凉凉。那么，何去何从？
+- 为汤不热请愿，让汤不热废除成人内容禁令，[「请愿直通车点我 Make Tumblr rescind their Adult Content Ban」](https://www.change.org/p/tumblr-com-allow-nsfw-content-on-tumblr)，截止12月14日，已有来自全球的50万人请愿！
+- 模仿区块链，将限制级内容去中性化，生杀大权掌握在每一个实例（实例即用户）手中，目前世界上已经有一款去中心化(不受监管)的社交平台：[长毛象](https://cmx.im/about)，有兴趣的老G可以了解下。
+- 在汤不热全面清除限制级内容之前将镜像内容（汤不热将采用AI识别和用户手工标记采样限制级内容，限制级内容不会一夜消失），做成汤不热镜像站。
+
+## 汤不热视频下载脚本
+此脚本使用需要一定的电脑操作知识，老哥没功夫手把手教你从如何点鼠标学起，能看到这里的相信都是老司机，相信各位的动手能力！
+- 此下载脚本为Python脚本，需要安装Python环境
+- 需要Python requests库，安装requests请用以下命令，没安装pip请先安装pip，如果不行请用你懂得姿势百度谷歌。
+```
+pip install requests
+```
+- 由于汤不热被墙，所以用膝盖都能想都到需要在能禾斗学上网的前提下使用本脚本。
+满足以上条件后：
+1. 下载脚本
+```
+# 安装了git的老铁，在你喜欢的目录git clone
+git clone https://github.com/scriptwang/scriptwang_Python.git
+# 没安装git的老铁请打开以下链接下载zip包并解压到你喜欢的目录
+https://codeload.github.com/scriptwang/scriptwang_Python/zip/master
+```
+
+2. 修改脚本
+打开该文件
+```
+...\scriptwang_Python\com\scriptwang\main\timblrSpider\tumblrSpider.py
+```
+修改如图所示三个地方！
+![修改脚本](./files/修改脚本.png)
+
+3. 运行脚本
+双击tumblrSpider.py运行脚本
+![脚本运行结果](./files/脚本运行结果.png)
+
+
+
+
+
+
+
+
+
