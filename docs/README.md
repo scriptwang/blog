@@ -14,6 +14,8 @@
 
 # 分类
 ## Java
+- [2020-12-20_IDEA构建工具必设置项！Maven+Gradle](blog/2020-12-20_IDEA构建工具必设置项！Maven+Gradle.md)
+- [Java中四个json解析包对比](blog/Java中四个json解析包对比.md)
 - [【JDK源码】ArrayList源码分析](blog/【JDK源码】ArrayList源码分析.md)
 - [【JDK源码】HashMap源码分析](blog/【JDK源码】HashMap源码分析.md)
 - [【JDK源码】ConcurrentHashMap源码分析](blog/【JDK源码】ConcurrentHashMap源码分析.md)
@@ -33,12 +35,16 @@
 - [Linux中找出Java程序占用大量CPU的元凶](blog/Linux中找出Java程序占用大量CPU的元凶.md)
 - [做好这两点，避免服务器成为肉鸡（傀儡）](blog/做好这两点，避免服务器成为肉鸡（傀儡）.md)
 ## 数据库
+- [Oracle数据库连接池频繁出现ORA-02399错误](blog/2020-12-11_Java_Oracle数据库连接池频繁出现ORA-02399错误.md)
 - [oracle数据库递归查询](blog/oracle数据库递归查询.md)
 - [SQL Server临时表生命周期](blog/SQL_Server临时表生命周期.md)
 - [SQLite常用命令和函数](blog/SQLite常用命令和函数.md)
 - [SQLite的13个使用场景](blog/SQLite的13个使用场景.md)
 ## 前端
+- [JavaScript跨域请求jsonp原理](blog/JavaScript跨域请求jsonp原理.md)
 - [JS实现图片懒加载](blog/JS实现图片懒加载.md)
+## 大数据
+- [2020-12-20_5分钟了解搜索引擎Lucene的原理.md](blog/2020-12-20_5分钟了解搜索引擎Lucene的原理.md)
 ## 其他
 - [SQLite的13个使用场景](blog/SQLite的13个使用场景.md)
 - [「汤不热」凉凉，30万老司机何去何从？（附赠Tumblr视频下载脚本）](blog/「汤不热」凉凉，30万老司机何去何从？（附赠Tumblr视频下载脚本）.md)
@@ -57,6 +63,11 @@
 - [5分钟教你搭建个人博客，纯白嫖，花了一分钱你来打我](blog/2020-12-15_5分钟教你搭建个人博客，纯白嫖，花了一分钱你来打我.md)
 
 # 归档
+- [2020-12-20_IDEA构建工具必设置项！Maven+Gradle](blog/2020-12-20_IDEA构建工具必设置项！Maven+Gradle.md)
+- [2020-12-20_5分钟了解搜索引擎Lucene的原理.md](blog/2020-12-20_5分钟了解搜索引擎Lucene的原理.md)
+- [Oracle数据库连接池频繁出现ORA-02399错误](blog/2020-12-11_Java_Oracle数据库连接池频繁出现ORA-02399错误.md)
+- [JavaScript跨域请求jsonp原理](blog/JavaScript跨域请求jsonp原理.md)
+- [Java中四个json解析包对比](blog/Java中四个json解析包对比.md)
 - [JS实现图片懒加载](blog/JS实现图片懒加载.md)
 - [oracle数据库递归查询](blog/oracle数据库递归查询.md)
 - [Spring中开启切面代理AOP](blog/Spring中开启切面代理AOP.md)
