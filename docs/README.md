@@ -14,6 +14,7 @@
 
 # 分类
 ## Java
+- [2021-01-11_Web开发中两种导出文件的思路](blog/2021-01-11_Web开发中两种导出文件的思路.md)
 - [2020-12-20_IDEA构建工具必设置项！Maven+Gradle](blog/2020-12-20_IDEA构建工具必设置项！Maven+Gradle.md)
 - [Java中四个json解析包对比](blog/Java中四个json解析包对比.md)
 - [【JDK源码】ArrayList源码分析](blog/【JDK源码】ArrayList源码分析.md)
@@ -22,6 +23,7 @@
 ## Spring
 - [Spring中开启切面代理AOP](blog/Spring中开启切面代理AOP.md)
 ## 监控
+- [2021-01-23_5分钟搭建SkyWalking监控系统](blog/2021-01-23_5分钟搭建Skywalking监控系统.md)
 - [【Java监控系列】用psi-probe监控Tomcat和应用](blog/【Java监控系列】用psi-probe监控Tomcat和应用.md)
 - [【Java监控系列】用javamelody监控java应用](blog/【Java监控系列】用javamelody监控java应用.md)
 ## 梯子
@@ -32,6 +34,10 @@
 ## docker
 - [都9102年了，还没听过docker？5分钟带你了解docker的前世今生！](blog/都9102年了，还没听过docker？5分钟带你了解docker的前世今生！.md)
 ## Linux
+- [2021-01-14_Linux中对文本分组统计排序](blog/2021-01-14_Linux中对文本分组统计排序.md)
+- [2021-01-14_Linux下备份Tomcat日志脚本](blog/2021-01-14_Linux下备份Tomcat日志脚本.md)
+- [2021-01-14_Linux下Nginx日志压缩备份脚本](blog/2021-01-14_Linux下Nginx日志压缩备份脚本.md)
+- [2021-01-05_5分钟在虚拟机中搭建Linux开发环境](blog/2021-01-05_5分钟在虚拟机中搭建Linux开发环境.md)
 - [Linux中找出Java程序占用大量CPU的元凶](blog/Linux中找出Java程序占用大量CPU的元凶.md)
 - [做好这两点，避免服务器成为肉鸡（傀儡）](blog/做好这两点，避免服务器成为肉鸡（傀儡）.md)
 ## 数据库
@@ -44,9 +50,17 @@
 - [JavaScript跨域请求jsonp原理](blog/JavaScript跨域请求jsonp原理.md)
 - [JS实现图片懒加载](blog/JS实现图片懒加载.md)
 ## 大数据
+- [2021-01-04_深入浅出ELK日志收集系统搭建](blog/2021-01-04_深入浅出ELK日志收集系统搭建.md)
+- [5分钟搭建好ElasticSearch开发环境](blog/5分钟搭建好ElasticSearch开发环境.md)
+- [5分钟了解ElasticSearch的核心概念](blog/5分钟了解ElasticSearch的核心概念.md)
+- [2020-12-20_搜索引擎Lucene的秘密，在10W篇文章中的表现如何？全文检索 VS 顺序查找](blog/2020-12-20_搜索引擎Lucene的秘密，在10W篇文章中的表现如何？全文检索VS顺序查找.md)
 - [2020-12-20_5分钟了解搜索引擎Lucene的原理.md](blog/2020-12-20_5分钟了解搜索引擎Lucene的原理.md)
 ## 其他
-- [SQLite的13个使用场景](blog/SQLite的13个使用场景.md)
+- [2021-01-22_5分钟三句代码实现抖音自动下载](blog/2021-01-22_5分钟三句代码实现抖音自动下载.md)
+- [2020-12-27_2021年Windows10装机必做的五件事](blog/2020-12-27_2021年Windows10装机必做的五件事.md)
+- [2021-01-01_有了 IP 地址，为什么还要用 MAC 地址？](blog/2021-01-01_有了IP地址，为什么还要用MAC地址？.md)
+- [2020-12-27_2021年Windows10装机必做的五件事](blog/2020-12-27_2021年Windows10装机必做的五件事.md)
+- [2020-12-20_工欲善其事必先利其器，IDEA必装插件！](blog/2020-12-20_工欲善其事必先利其器，IDEA必装插件！.md)
 - [「汤不热」凉凉，30万老司机何去何从？（附赠Tumblr视频下载脚本）](blog/「汤不热」凉凉，30万老司机何去何从？（附赠Tumblr视频下载脚本）.md)
 - [Linux中找出Java程序占用大量CPU的元凶](blog/Linux中找出Java程序占用大量CPU的元凶.md)
 - [正则表达式一个问号引发的血案](blog/正则表达式一个问号引发的血案.md)
@@ -63,6 +77,20 @@
 - [5分钟教你搭建个人博客，纯白嫖，花了一分钱你来打我](blog/2020-12-15_5分钟教你搭建个人博客，纯白嫖，花了一分钱你来打我.md)
 
 # 归档
+- [2021-01-14_Linux中对文本分组统计排序](blog/2021-01-14_Linux中对文本分组统计排序.md)
+- [2021-01-23_5分钟搭建SkyWalking监控系统](blog/2021-01-23_5分钟搭建Skywalking监控系统.md)
+- [2021-01-14_Linux下备份Tomcat日志脚本](blog/2021-01-14_Linux下备份Tomcat日志脚本.md)
+- [2021-01-14_Linux下Nginx日志压缩备份脚本](blog/2021-01-14_Linux下Nginx日志压缩备份脚本.md)
+- [2021-01-04_深入浅出ELK日志收集系统搭建](blog/2021-01-04_深入浅出ELK日志收集系统搭建.md)
+- [5分钟搭建好ElasticSearch开发环境](blog/5分钟搭建好ElasticSearch开发环境.md)
+- [5分钟了解ElasticSearch的核心概念](blog/5分钟了解ElasticSearch的核心概念.md)
+- [2021-01-05_5分钟在虚拟机中搭建Linux开发环境](blog/2021-01-05_5分钟在虚拟机中搭建Linux开发环境.md)
+- [2021-01-22_5分钟三句代码实现抖音自动下载](blog/2021-01-22_5分钟三句代码实现抖音自动下载.md)
+- [2021-01-11_Web开发中两种导出文件的思路](blog/2021-01-11_Web开发中两种导出文件的思路.md)
+- [2021-01-01_有了 IP 地址，为什么还要用 MAC 地址？](blog/2021-01-01_有了IP地址，为什么还要用MAC地址？.md)
+- [2020-12-27_2021年Windows10装机必做的五件事](blog/2020-12-27_2021年Windows10装机必做的五件事.md)
+- [2020-12-20_搜索引擎Lucene的秘密，在10W篇文章中的表现如何？全文检索 VS 顺序查找](blog/2020-12-20_搜索引擎Lucene的秘密，在10W篇文章中的表现如何？全文检索VS顺序查找.md)
+- [2020-12-20_工欲善其事必先利其器，IDEA必装插件！](blog/2020-12-20_工欲善其事必先利其器，IDEA必装插件！.md)
 - [2020-12-20_IDEA构建工具必设置项！Maven+Gradle](blog/2020-12-20_IDEA构建工具必设置项！Maven+Gradle.md)
 - [2020-12-20_5分钟了解搜索引擎Lucene的原理.md](blog/2020-12-20_5分钟了解搜索引擎Lucene的原理.md)
 - [Oracle数据库连接池频繁出现ORA-02399错误](blog/2020-12-11_Java_Oracle数据库连接池频繁出现ORA-02399错误.md)
