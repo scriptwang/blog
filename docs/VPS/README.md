@@ -57,5 +57,5 @@ curl -fsL https://ilemonra.in/LemonBenchIntl | bash -s fast
 
 ## 评测归档
 
-- [2021-08-01_DMIT香港双程CN2评测](2021-08-01_DMIT香港双程CN2评测.md)
+- [2021-08-01_DMIT香港双程CN2评测](VPS/2021-08-01_DMIT香港双程CN2评测.md)
 
