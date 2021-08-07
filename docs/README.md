@@ -93,7 +93,7 @@
 - [2020-12-20_搜索引擎Lucene的秘密，在10W篇文章中的表现如何？全文检索 VS 顺序查找](blog/2020-12-20_搜索引擎Lucene的秘密，在10W篇文章中的表现如何？全文检索VS顺序查找.md)
 - [2020-12-20_5分钟了解搜索引擎Lucene的原理.md](blog/2020-12-20_5分钟了解搜索引擎Lucene的原理.md)
 ## 云原生
-- [OpenShift网络之Open vSwitch详解](blog/OpenShift网络之Open vSwitch详解.md)
+- [OpenShift网络之Open_vSwitch详解](blog/OpenShift网络之Open_vSwitch详解.md)
 - [2021-06-20_CentOS7.9上部署OpenShift3.11集群](blog/2021-06-20_CentOS7.9上部署OpenShift3.11集群.md)
 - [2021-06-14_K8S原理架构与实战（基础篇）](blog/2021-06-14_K8S原理架构与实战（基础篇）.md)
 ## 其他
