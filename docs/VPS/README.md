@@ -54,8 +54,3 @@ curl -fsL https://ilemonra.in/LemonBenchIntl | bash -s fast
 ---
 
 回程测试指的就是VPS到本地或者到国内监测点的路由测试，`LemonBenchIntl`脚本已经做了该测试，可结合起来看
-
-## 评测归档
-
-- [2021-08-01_DMIT香港双程CN2评测](VPS/2021-08-01_DMIT香港双程CN2评测.md)
-
