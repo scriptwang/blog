@@ -127,7 +127,8 @@
 
 
 # 归档
-- [OpenShift网络之Open vSwitch详解](blog/OpenShift网络之Open vSwitch详解.md)
+- [2021-08-07_搬瓦工洛杉矶单程CN2评测](VPS/2021-08-07_搬瓦工洛杉矶单程CN2评测.md)
+- [OpenShift网络之Open_vSwitch详解](blog/OpenShift网络之Open_vSwitch详解.md)
 - [2021-08-01_DMIT香港双程CN2评测](VPS/2021-08-01_DMIT香港双程CN2评测.md)
 - [2021-07-24_内存条玄学之四槽插满就这么难么？](blog/2021-07-24_内存条玄学之四槽插满就这么难么？.md)
 - [2021-06-20_CentOS7.9上部署OpenShift3.11集群](blog/2021-06-20_CentOS7.9上部署OpenShift3.11集群.md)
