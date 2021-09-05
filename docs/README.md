@@ -93,6 +93,7 @@
 - [2020-12-20_搜索引擎Lucene的秘密，在10W篇文章中的表现如何？全文检索 VS 顺序查找](blog/2020-12-20_搜索引擎Lucene的秘密，在10W篇文章中的表现如何？全文检索VS顺序查找.md)
 - [2020-12-20_5分钟了解搜索引擎Lucene的原理.md](blog/2020-12-20_5分钟了解搜索引擎Lucene的原理.md)
 ## 云原生
+- [2021-09-05_K8S_Webhook结合CRD进阶玩法](blog/2021-09-05_K8S_Webhook结合CRD进阶玩法.md)
 - [2021-08-29_从0到1开发K8S_Webhook最佳实践](blog/2021-08-29_从0到1开发K8S_Webhook最佳实践.md)
 - [OpenShift网络之Open_vSwitch详解](blog/OpenShift网络之Open_vSwitch详解.md)
 - [2021-06-20_CentOS7.9上部署OpenShift3.11集群](blog/2021-06-20_CentOS7.9上部署OpenShift3.11集群.md)
@@ -129,6 +130,7 @@
 
 
 # 归档
+- [2021-09-05_K8S_Webhook结合CRD进阶玩法](blog/2021-09-05_K8S_Webhook结合CRD进阶玩法.md)
 - [2021-08-29_从0到1开发K8S_Webhook最佳实践](blog/2021-08-29_从0到1开发K8S_Webhook最佳实践.md)
 - [2021-08-21_Vscode远程开发初体验](blog/2021-08-21_Vscode远程开发初体验.md)
 - [2021-08-07_搬瓦工洛杉矶单程CN2评测](VPS/2021-08-07_搬瓦工洛杉矶单程CN2评测.md)
