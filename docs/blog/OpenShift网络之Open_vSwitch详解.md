@@ -6,7 +6,7 @@
 
 > OSI：**开放式系统互联模型**（英语：**O**pen **S**ystem **I**nterconnection Model，缩写：OSI；简称为**OSI模型**）是一种[概念模型](https://zh.wikipedia.org/wiki/概念模型)，由[国际标准化组织](https://zh.wikipedia.org/wiki/国际标准化组织)提出，一个试图使各种计算机在世界范围内互连为网络的标准框架。定义于ISO/IEC 7498-1。
 
-![img](files/OpenShift网络之Open vSwitch详解/20190625105716.png)
+![img](files/OpenShift网络之Open_vSwitch详解/20190625105716.png)
 
 
 
@@ -56,17 +56,17 @@
 
 OSI七层网络模型还有一个详细版本的，缩略图如下
 
-![image-20210715100739657](files/OpenShift网络之Open vSwitch详解/image-20210715100739657.png)
+![image-20210715100739657](files/OpenShift网络之Open_vSwitch详解/image-20210715100739657.png)
 
 - 发布地址为：http://www.colasoft.com.cn/download/protocols_map.php，
 
-- 下载地址：[network-protocol-map-2020.pdf](files/OpenShift网络之Open vSwitch详解/network-protocol-map-2020.pdf)
+- 下载地址：[network-protocol-map-2020.pdf](files/OpenShift网络之Open_vSwitch详解/network-protocol-map-2020.pdf)
 
 ### TCP/IP 协议
 
 在实际编程过程之中，接触到的更多的是TCP/IP协议模型，它是对OSI七层模型进行"掐头"或"去尾"，有四层的，也有五层的，下面是OSI和TCP/IP对照关系图
 
-![image-20210715102317066](files/OpenShift网络之Open vSwitch详解/image-20210715102317066.png)
+![image-20210715102317066](files/OpenShift网络之Open_vSwitch详解/image-20210715102317066.png)
 
 
 
@@ -78,7 +78,7 @@ OSI七层网络模型还有一个详细版本的，缩略图如下
 
 **分层解耦**：下层的操作不会影响到上层
 
-![preview](files/OpenShift网络之Open vSwitch详解/v2-ab2d3b33f95883ae9da32a19c41af1ab_r.jpg)
+![preview](files/OpenShift网络之Open_vSwitch详解/v2-ab2d3b33f95883ae9da32a19c41af1ab_r.jpg)
 
 
 
@@ -290,7 +290,7 @@ docker exec c67c36070427 curl 127.0.0.1:80
 
 Pod内部的网络通过共享namespace就可以实现了，那同一Node上Pod之间的网络通信呢？
 
-![image-20210715155216604](files/OpenShift网络之Open vSwitch详解/image-20210715155216604.png)
+![image-20210715155216604](files/OpenShift网络之Open_vSwitch详解/image-20210715155216604.png)
 
 ### OpenShift 中的网络插件
 
@@ -353,7 +353,7 @@ grep clusterNetworks -A 2 /etc/origin/master/master-config.yaml
 - table 90: 做远端IP包转发“寻址”，根据目标IP，设置VXLAN隧道远端IP，并从隧道发出;
 - table 100: 做出外网的转出处理，将数据包从tun0发出。
 
-![openshift_ovs_flows.jpg](files/OpenShift网络之Open vSwitch详解/openshift_ovs_flows.jpg)
+![openshift_ovs_flows.jpg](files/OpenShift网络之Open_vSwitch详解/openshift_ovs_flows.jpg)
 
 
 
@@ -473,7 +473,7 @@ OFPT_GET_CONFIG_REPLY (OF1.3) (xid=0x5): frags=nx-match miss_send_len=0
 
 网络路径：：pod1的eth0 → veth34 → br0 → veth12 → pod2的eth0 
 
-![image-20210715155216604](files/OpenShift网络之Open vSwitch详解/image-20210715155216604.png)
+![image-20210715155216604](files/OpenShift网络之Open_vSwitch详解/image-20210715155216604.png)
 
 ##### 流表查看
 
@@ -586,7 +586,7 @@ ovs-ofctl -O OpenFlow13 dump-flows br0 table=10
 
 ## 不同Node上Pod的网络通信
 
-![image-20210715165034524](files/OpenShift网络之Open vSwitch详解/image-20210715165034524.png)
+![image-20210715165034524](files/OpenShift网络之Open_vSwitch详解/image-20210715165034524.png)
 
 
 
@@ -717,7 +717,7 @@ traceroute to 10.131.0.4 (10.131.0.4), 30 hops max, 60 byte packets
 
 ## Pod与集群外部网络的通信
 
-![image-20210716151134441](files/OpenShift网络之Open vSwitch详解/image-20210716151134441.png)
+![image-20210716151134441](files/OpenShift网络之Open_vSwitch详解/image-20210716151134441.png)
 
 当Pod需要访问外部地址的时候，首先会将数据发送给br0网桥，根据**流表**将数据发送给在流表上2号端口的tun0（充当Pod网关的角色）
 
@@ -764,7 +764,7 @@ bridge("br0")
 
 首先看一下Iptables处理流程
 
-![preview](files/OpenShift网络之Open vSwitch详解/v2-63126807f733612004f8e666837bb13d_r.jpg)
+![preview](files/OpenShift网络之Open_vSwitch详解/v2-63126807f733612004f8e666837bb13d_r.jpg)
 
 左上角是收到的数据包处理流程，右上角是本机产生的数据包处理流程，此处我们看本机产生的数据包流程，最后经过了`nat`表的`POSTROUTING`链，这条链就是源地址转换
 
@@ -861,7 +861,7 @@ IP 192.168.108.112 > 192.168.108.1: ICMP echo request, id 4240, seq 1, length 64
 
 ## Pod与Service通信
 
-![image-20210722113843623](files/OpenShift网络之Open vSwitch详解/image-20210722113843623.png)
+![image-20210722113843623](files/OpenShift网络之Open_vSwitch详解/image-20210722113843623.png)
 
 Pod到Service的网络大概为：首先在创建Service资源的时候所有的Node都会创建iptables规则，并产生一个ClusterIP，然后当某个Node去访问ClusterIP的时候实际上是去访问了本机上的iptables提供出来的虚拟资源（没有主机实体，所以ping不通），iptables再根据具体的规则做负载均衡，将流量目标IP设置为该Service后端具体的Pod的IP地址.
 
@@ -999,7 +999,7 @@ EgressIP的原理可以参考这一段
 
 如果容器不是部署在EgressIP所在的节点上，那么就会先通过VXLAN隧道将数据包转发至目标节点上（这个过程和**不同Node上Pod的网络通信**类似），最后和容器部署在EgressIP所在的节点上的过程一致（即上述）
 
-![image-20210722153150115](files/OpenShift网络之Open vSwitch详解/image-20210722153150115.png)
+![image-20210722153150115](files/OpenShift网络之Open_vSwitch详解/image-20210722153150115.png)
 
 ### 查看配置的EgressIP
 
@@ -1100,7 +1100,7 @@ iptables -t nat -nvL | grep 192.168.108.200
 
 验证思路：找一个外部能访问主机，假设你是在Vmware开虚拟机搭建的OpenShift，那么可以直接在宿主机上用`nc`命令监听一个端口，然后在Pod内部`telnet`一下该端口，`nc`命令会打印来源IP，验证此IP是否是EgressIP
 
-1. 在宿主机上随便监听一个端口，假如为5566，nc命令即netcat，windows默认不带，去[这个链接](https://eternallybored.org/misc/netcat/)或者[点击此处](files/OpenShift网络之Open vSwitch详解/netcat-win32_64-1.12.zip)下载好后随便放一个地方，添加环境变量即可：
+1. 在宿主机上随便监听一个端口，假如为5566，nc命令即netcat，windows默认不带，去[这个链接](https://eternallybored.org/misc/netcat/)或者[点击此处](files/OpenShift网络之Open_vSwitch详解/netcat-win32_64-1.12.zip)下载好后随便放一个地方，添加环境变量即可：
 
 ```bash
 nc -lvp 5566
