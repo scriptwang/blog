@@ -51,6 +51,44 @@ WireGuard 不能做的事：
 - 官方安装手册：https://www.wireguard.com/install/
 - docker安装：https://hub.docker.com/r/linuxserver/wireguard
 
+WireGuard 的安装条件**非常苛刻**，对内核版本要求极高，不仅如此，在不同的系统中，**内核，内核源码包，内核头文件**必须存在且这三者版本要一致，Red Hat、CentOS、Fedora 等系统的**内核，内核源码包，内核头文件**包名分别为 `kernel`、`kernel-devel`、`kernel-headers`；Debian、Ubuntu 等系统的**内核，内核源码包，内核头文件**包名分别为 `kernel`、`linux-headers`。果这三者任一条件不满足的话，则不管是从代码编译安装还是从 repository 直接安装，也只是安装了 `wireguard-tools` 而已。而 WireGuard 真正工作的部分，是 `wireguard-dkms`，也就是动态内核模块支持(DKMS)，是它将 WireGuard 编译到系统内核中。
+
+目前 WireGuard 已经被合并到 `Linux 5.6` 内核中了，如果你的内核版本 >= 5.6，就可以用上原生的 WireGuard 了，只需要安装 wireguard-tools 即可，内核版本<5.6，可能需要首先更新内核，否则可能会报错：`Unable to access interface: Protocol not supported`，如下为更新内核版本示例（CentOS）
+
+```shell
+# 查看当前内核版本
+uname --kernel-release
+
+# 安装必要工具，卸载旧的内核源码包
+yum -y install epel-release curl
+sed -i "0,/enabled=0/s//enabled=1/" /etc/yum.repos.d/epel.repo
+yum remove -y kernel-devel
+
+# 导入公钥
+rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+# 升级安装 elrepo
+rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
+# 安装新版本工具包
+yum --disablerepo="*" --enablerepo="elrepo-kernel" list available
+yum -y --enablerepo=elrepo-kernel install kernel-ml
+# 设置默认启动
+sed -i "s/GRUB_DEFAULT=saved/GRUB_DEFAULT=0/" /etc/default/grub
+grub2-mkconfig -o /boot/grub2/grub.cfg
+wget https://elrepo.org/linux/kernel/el7/x86_64/RPMS/kernel-ml-devel-5.15.10-1.el7.elrepo.x86_64.rpm
+rpm -ivh kernel-ml-devel-5.15.10-1.el7.elrepo.x86_64.rpm
+yum -y --enablerepo=elrepo-kernel install kernel-ml-devel
+```
+
+最后重启
+
+```shell
+# 重启
+reboot
+
+# 查看升级后的内核版本
+uname --kernel-release
+```
+
 ## 牛刀小试
 
 最开始尝试可以在内网中进行，避开互联网不稳定或者防火墙等因素，节点可以是内网中的两台虚拟机或者跑两个docker容器进行尝试。
@@ -498,6 +536,18 @@ PING 192.168.2.5 (192.168.2.5) 56(84) bytes of data.
 ...
 ```
 
+在peer3处注意，如果需要使用家庭内网网关作为DNS服务器（假设为192.168.2.1），可配置如下，这样配置的好处是假如存在内网域名，则可直接解析
+
+```properties
+[Interface]
+Address = 5.5.5.3/24
+PrivateKey = AA7GomiYl60DW5ZAGgn7VlwGWX8/Jw74qiYWPpknGWQ=
+# peer3的所有DNS请求都将发往该IP
+DNS = 192.168.2.1
+
+...
+```
+
 如下为测试中转（网关）场景时的截图说明
 
 ![Snipaste_2021-12-19_21-31-41](assets/2021-12-18_被Linux创始人称做艺术品的组网神器——WireGuard/Snipaste_2021-12-19_21-31-41.jpg)
@@ -509,6 +559,57 @@ PING 192.168.2.5 (192.168.2.5) 56(84) bytes of data.
 - peer3和peer1情况类似，指定peer2作为中转机，并且将所有5.5.5.0/24网段的IP数据都发送给该peer
 
 ![image-20211219215027441](assets/2021-12-18_被Linux创始人称做艺术品的组网神器——WireGuard/image-20211219215027441.png)
+
+### iptables注意事项
+
+如果发现主机peer3去ping主机peer1能成功，但是**telnet端口不通**有可能是iptables规则顺序问题，wireguard中有如下几条规则
+
+（**该情况可能发生在peer1或peer2，主要看规则是不是加在丢弃所有包的规则之后！**）
+
+```properties
+PostUp   = iptables -A FORWARD -i %i -j ACCEPT
+PostUp   = iptables -A FORWARD -o %i -j ACCEPT
+PostUp   = iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+```
+
+这几条规则其实会在FORWARD链中末尾追加内容，如下所示（使用`iptables -nvL FORWARD`可查看）
+
+```properties
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+    ...
+    # 该规则会舍弃掉所有包
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0
+    7   448 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0
+    ...
+    # 如下为追加的规则
+    0     0 ACCEPT     all  --  wg21   *       0.0.0.0/0            0.0.0.0/0
+    0     0 ACCEPT     all  --  *      wg21    0.0.0.0/0            0.0.0.0/0
+
+```
+
+仔细观察一下上面的规则其实是有问题的，因为iptables会**从上往下匹配**，发现有`DROP`和`REJECT`两条规则，规则都是所有丢弃所有包，**我们自己添加的规则由于顺序问题导致优先级更低，所以其实没生效**，因此只要将PostUp中的**追加(-A)**该为**插入(-I)**，如下所示
+
+```properties
+PostUp   = iptables -I FORWARD -i %i -j ACCEPT
+PostUp   = iptables -I FORWARD -o %i -j ACCEPT
+PostUp   = iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
+```
+
+改完之后规则顺序如下
+
+```properties
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+   # 自己添加的规则在最上面去了
+   13   676 ACCEPT     all  --  *      wg21    0.0.0.0/0            0.0.0.0/0
+   14   782 ACCEPT     all  --  wg21   *       0.0.0.0/0            0.0.0.0/0
+    ...
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0
+    7   448 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0
+```
+
+
 
 # 参考
 

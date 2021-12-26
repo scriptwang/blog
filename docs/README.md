@@ -46,6 +46,7 @@
 - [【Java监控系列】用psi-probe监控Tomcat和应用](blog/【Java监控系列】用psi-probe监控Tomcat和应用.md)
 - [【Java监控系列】用javamelody监控java应用](blog/【Java监控系列】用javamelody监控java应用.md)
 ## 梯子
+- [2021-12-26_WireGuard+V2ray打造史上最安全隐匿且高速的内网穿透隧道](blog/2021-12-26_WireGuard+V2ray打造史上最安全隐匿且高速的内网穿透隧道.md)
 - [2021-12-24_一群匿名者打造的强大基础通信网络构建工具——V2ray](blog/2021-12-24_一群匿名者打造的强大基础通信网络构建工具——V2ray.md)
 - [2021-12-18_被Linux创始人称做艺术品的组网神器——WireGuard](blog/2021-12-18_被Linux创始人称做艺术品的组网神器——WireGuard.md)
 - [【富强系列-NAT_VPS】新型NAT_VPS部署nginx+websocket+tls方案](blog/【富强系列-NAT_VPS】新型NAT_VPS部署nginx+websocket+tls方案.md)
@@ -146,6 +147,7 @@
 - [5分钟教你搭建个人博客，纯白嫖，花了一分钱你来打我](blog/2020-12-15_5分钟教你搭建个人博客，纯白嫖，花了一分钱你来打我.md)
 
 # 归档
+- [2021-12-26_WireGuard+V2ray打造史上最安全隐匿且高速的内网穿透隧道](blog/2021-12-26_WireGuard+V2ray打造史上最安全隐匿且高速的内网穿透隧道.md)
 - [2021-12-24_一群匿名者打造的强大基础通信网络构建工具——V2ray](blog/2021-12-24_一群匿名者打造的强大基础通信网络构建工具——V2ray.md)
 - [2021-12-18_被Linux创始人称做艺术品的组网神器——WireGuard](blog/2021-12-18_被Linux创始人称做艺术品的组网神器——WireGuard.md)
 - [2021-11-27_ESXi裸金属虚拟化体验小记](blog/2021-11-27_ESXi裸金属虚拟化体验小记.md)
