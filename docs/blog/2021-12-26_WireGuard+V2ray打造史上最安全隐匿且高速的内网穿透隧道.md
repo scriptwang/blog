@@ -823,6 +823,99 @@ v2ray -c ~/v2ray-wg/config.json
 
 ![image-20211226150319112](assets/2021-12-26_WireGuard+V2ray打造史上最安全隐匿且高速的内网穿透隧道/image-20211226150319112.png)
 
+## 公网暴露服务
+
+聪明的你应该已经想到，既然我们有https伪装站点，且peer2（搭建站点的节点）共享pee1的内网资源，所以可以暴露peer1的内网服务，如搭建在peer1上的网站
+
+如果peer2上的v2ray和wireguard不在docker中，那么没有网络隔离，直接在nginx中配置反向代理即可，如下
+
+- 注意，peer1上的网站最好加上一个**统一的baseurl**用于设置location，否则需要设置很多location规则去匹配peer1上服务。
+
+```nginx
+# location规则
+location /website-on-peer1-base-url {
+   # 反向代理peer1上的web服务，注意，peer1上的网站最好加上一个统一的baseurl用于设置location
+   # 否则需要设置很多location规则去匹配peer1上服务
+   proxy_pass http://192.168.2.5:8080;
+}
+```
+
+然后在公网访问https://fakesite.com/website-on-peer1-base-url相当于访问peer1上的http://192.168.2.5:8080/website-on-peer1-base-url
+
+如果peer1上的服务是公开的，还可在nginx处设置基本认证，这样访问的会让输入预先设置的账号和密码
+
+首先生成密码
+
+```shell
+# 生成用户为test密码为123456的用户
+printf "test:$(openssl passwd -crypt 123456)\n" >>/etc/pwd/htpasswd
+```
+
+nginx配置如下
+
+```nginx
+# location规则
+location /website-on-peer1-base-url {
+   # 反向代理peer1上的web服务，注意，peer1上的网站最好加上一个统一的baseurl用于设置location
+   # 否则需要设置很多location规则去匹配peer1上服务
+   proxy_pass http://192.168.2.5:8080;
+   auth_basic "Please enter your username and password";
+   auth_basic_user_file   /etc/pwd/htpasswd;
+}
+```
+
+### wireguard在docker中
+
+如果peer2上的wg在docker中，那么其实存在网络隔离，只有wireguard的容器本身共享peer1的内网，peer2是不共享的，因此需要在wireguard容器内部进行端口转发
+
+1. 进入wireguard容器安装sshd服务（ssh可以进行端口转发）
+
+```shell
+# 安装
+apt-get update -y
+apt-get install ssh -y
+
+
+# 创建目录，否则可能会报错
+mkdir /run/sshd
+# 启动
+/etc/init.d/ssh  start
+
+# 打开配置文件，允许密码登录，加上PermitRootLogin yes
+vim /etc/ssh/sshd_config
+# 重启
+/etc/init.d/ssh  restart
+
+# 设置ssh登录密码
+passwd
+```
+
+2. 进行端口转发（注意一定是`0.0.0.0:8080`，`0.0.0.0`表示会监听在所有网络接口上，因为后续nginx会使用到wireguard的容器IP）
+
+```shell
+# 端口转发，将192.168.2.5:8080端口转发到0.0.0.0:8080
+# 即往wireguard容器上8080端口发送的数据都往192.168.2.5:8080发送
+ssh -fN -L 0.0.0.0:8080:192.168.2.5:8080 root@127.0.0.1
+
+
+# 可配合telnet  curl 等命令验证
+telnet 127.0.0.1 8080
+```
+
+3. nginx处配置（**注意172.18.0.11为wireguard容器的IP**）
+
+```nginx
+# location规则
+location /website-on-peer1-base-url {
+   # 反向代理peer1上的web服务，注意，peer1上的网站最好加上一个统一的baseurl用于设置location
+   # 否则需要设置很多location规则去匹配peer1上服务
+   # 注意172.18.0.11为wireguard容器的IP
+   proxy_pass http://172.18.0.11:8080;
+}
+```
+
+
+
 ## 注意事项
 
 - 文中v2ray配置中的UUID记得更改，请勿照抄
@@ -853,3 +946,4 @@ DNS = 192.168.2.1
 
 - https://hub.docker.com/r/v2fly/v2fly-core
 - https://hub.docker.com/r/linuxserver/wireguard
+
